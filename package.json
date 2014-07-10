@@ -1,5 +1,5 @@
 {
-  "name": "query-string",
+  "name": "query-string-object",
   "version": "0.0.1",
   "desciption": "parse query string as object and array like php does",
   "keywords": "querystring object array",
