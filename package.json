@@ -1,0 +1,17 @@
+{
+  "name": "query-string",
+  "version": "0.0.1",
+  "desciption": "parse query string as object and array like php does",
+  "keywords": "querystring object array",
+  "homepage": "http://gitlab.alibaba-inc.com/lichen.dlc/node-dfs",
+  "bugs": "https://github.com/ericdum/querystring/issues",
+  "author": "木酱 <lichen.dlc@alibaba-inc.com> (http://mujiang.info/)",
+  "repository": {"type":"git", "url": "https://github.com/ericdum/querystring"},
+  "script": {
+    "test": "./node_modules/.bin/mocha --reporter tap test.js"
+  },
+  "devDependencies" : {
+    "mocha"         : "*",
+    "expect.js"     : "*"
+  }
+}
