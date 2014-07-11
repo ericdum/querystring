@@ -31,8 +31,8 @@ function parse( query ){
 }
 
 function numberfy( string ) {
-  if( typeof value == "string" && value.match(/^\s*(?:0x)?[\d.]+\s*$/) ){
-    return parseFloat(value);
+  if( typeof string == "string" && string.match(/^\s*(?:0x)?[\d.]+\s*$/) ){
+    return parseFloat(string);
   }
   return string;
 }
