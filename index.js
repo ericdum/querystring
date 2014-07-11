@@ -12,27 +12,21 @@ module.exports = function(query) {
 function parse( query ){
   var dirty = false;
   for( var key in query ) {
-    query[key] = numberfy(query[key]);
     var value = query[key];
     if( matches = key.match(/^([\w\[\]]+)(\[\w*\])$/) ){
-      if( matches[2].match(/^\[\s*\]$/) ) {
-        if( value instanceof Array ) query[matches[1]] = value
-        else query[matches[1]] = [value]
+      var parent = matches[1];
+      var child = matches[2];
+      if( child.match(/^\[\s*\]$/) ) {
+        if( value instanceof Array ) query[parent] = value
+        else query[parent] = [value]
       } else {
-        if( !(query[matches[1]] instanceof Object) ) query[matches[1]] = {};
-        matches[2] = matches[2].replace(/[\[\] ]/g, "");
-        query[matches[1]][matches[2]] = value
+        if( !(query[parent] instanceof Object) ) query[parent] = {};
+        child = child.replace(/[\[\] ]/g, "");
+        query[parent][child] = value
       }
       delete query[key]
       dirty = true
     }
   }
   return dirty ? parse(query) : query
-}
-
-function numberfy( string ) {
-  if( typeof string == "string" && string.match(/^\s*(?:0x)?[\d.]+\s*$/) ){
-    return parseFloat(string);
-  }
-  return string;
 }

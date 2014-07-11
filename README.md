@@ -1,7 +1,6 @@
-querystring
-===========
+##querystring
 
-parse query string as object and array like php does
+support object or array like php did: ?a[]=1&a[]=2 -> a=[1,2]
 
 ###Usage
 

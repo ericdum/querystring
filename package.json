@@ -1,8 +1,8 @@
 {
   "name": "query-string-object",
-  "version": "0.0.4",
-  "desciption": "parse query string as object and array like php does",
-  "keywords": "querystring object array",
+  "version": "0.0.7",
+  "desciption": "support object or array like php did: ?a[]=1&a[]=2 -> a=[1,2]",
+  "keywords": "querystring, object, array, php, query, extend, string, rest, restful",
   "homepage": "http://gitlab.alibaba-inc.com/lichen.dlc/node-dfs",
   "bugs": "https://github.com/ericdum/querystring/issues",
   "author": "木酱 <lichen.dlc@alibaba-inc.com> (http://mujiang.info/)",
