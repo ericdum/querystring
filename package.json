@@ -1,6 +1,6 @@
 {
   "name": "query-string-object",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "desciption": "parse query string as object and array like php does",
   "keywords": "querystring object array",
   "homepage": "http://gitlab.alibaba-inc.com/lichen.dlc/node-dfs",
