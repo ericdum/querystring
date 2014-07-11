@@ -2,7 +2,10 @@ native_qs = require("querystring");
 
 module.exports = function(query) {
   if( ! query ) return {};
-  if( typeof query == 'string' ) query = native_qs.parse(query);
+  if( typeof query == 'string' ) {
+    if( ! query.match(/\[\w*\]/) ) return native_qs.parse(query);
+    query = native_qs.parse(query);
+  }
   return parse( query )
 }
 
@@ -13,11 +16,11 @@ function parse( query ){
     var value = query[key];
     if( matches = key.match(/^([\w\[\]]+)(\[\w*\])$/) ){
       if( matches[2].match(/^\[\s*\]$/) ) {
-        if( !(query[matches[1]] instanceof Array) ) query[matches[1]] = [];
-        query[matches[1]].push(value)
+        if( value instanceof Array ) query[matches[1]] = value
+        else query[matches[1]] = [value]
       } else {
         if( !(query[matches[1]] instanceof Object) ) query[matches[1]] = {};
-        matches[2] = matches[2].replace(/[\[\] ]/g,"");
+        matches[2] = matches[2].replace(/[\[\] ]/g, "");
         query[matches[1]][matches[2]] = value
       }
       delete query[key]
@@ -28,8 +31,8 @@ function parse( query ){
 }
 
 function numberfy( string ) {
-    if( typeof value == "string" && value.match(/^\s*(?:0x)?[\d.]+\s*$/) ){
-      return parseFloat(value);
-    }
-    return string;
+  if( typeof value == "string" && value.match(/^\s*(?:0x)?[\d.]+\s*$/) ){
+    return parseFloat(value);
+  }
+  return string;
 }
