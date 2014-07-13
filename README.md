@@ -17,6 +17,13 @@ qs = require('query-string-object')
 qs('xx=yy&zz..') // just like what is pass to the native qs.parse
 ```
 
+###Tests
+
+```shell
+npm install
+./node_modules/.bin/mocha --reporter tap test.js
+```
+
 ###Expects
 
 ####a=1&b=2
