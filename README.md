@@ -72,6 +72,7 @@ output
 
 ####a=1&b[eric]=dum&c[stive]=jobs&c=3
 
+```
 output
 ({
   a: 1,
