@@ -1,4 +1,4 @@
-##querystring
+##querystring [![Build Status](https://travis-ci.org/ericdum/querystring.svg?branch=master)](https://travis-ci.org/ericdum/querystring)
 
 support object or array like php did: ?a[]=1&a[]=2 -> a=[1,2]
 
