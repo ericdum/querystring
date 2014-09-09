@@ -7,7 +7,7 @@
   "bugs": "https://github.com/ericdum/querystring/issues",
   "author": "木酱 <lichen.dlc@alibaba-inc.com> (http://mujiang.info/)",
   "repository": {"type":"git", "url": "https://github.com/ericdum/querystring"},
-  "script": {
+  "scripts": {
     "test": "./node_modules/.bin/mocha --reporter tap test.js"
   },
   "devDependencies" : {
