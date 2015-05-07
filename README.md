@@ -15,6 +15,16 @@ in js file
 ```javascript
 qs = require('query-string-object')
 qs('xx=yy&zz..') // just like what is pass to the native qs.parse
+qs.stringify({
+  fInt: 1,
+  fString: 'string',
+  fObject: {
+    anobject: {a:1, b:2},
+    anything: 'thing'
+  },
+  fArray: [1,2,"string"]
+}) 
+// fInt=1&fString=string&fObject[anobject][a]=1&fObject[anobject][b]=2&fObject[anything]=thing&fArray[]=1&fArray[]=2&fArray[]=string
 ```
 
 ###Tests
