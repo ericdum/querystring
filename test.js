@@ -172,5 +172,15 @@ describe("querystring.stringify", function(){
       }
     })).to.be.eql("x.y[c][$d]=3m&x.y[a][]=c&x.y[b][]=1&x2.y2[c][$d]=3m&x.y3[c][$d]=3m&x.y3[a]=c&x.y3[b][]=1");
   })
-  //*/
+  it("remove empty value", function(){
+    expect(qs.stringify({
+      "xxx":{
+        "yyy":[],
+      },
+      "zzz": {},
+      "www": '',
+      x:1,
+      y:2
+    })).to.be.eql("x=1&y=2");
+  })
 });

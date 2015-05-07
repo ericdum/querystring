@@ -41,10 +41,11 @@ module.exports.stringify = function(obj) {
         result.push(stringifyArray(key, val));
       } else if (_.isObject(val)) {
         result.push(stringifyObject(key, val));
-      } else {
+      } else if (val) {
         result.push(key+'='+val);
       }
     });
+    result = result.filter(function(e){return e}); 
     return result.join('&');
   } else {
     throw new Error('Invalid Object Format');
@@ -60,10 +61,11 @@ function stringifyObject (key, obj) {
       result.push(stringifyArray(key2, val));
     } else if (_.isObject(val)) {
       result.push(stringifyObject(key2, val));
-    } else {
+    } else if (val) {
       result.push(key2+'='+val);
     }
   });
+  result = result.filter(function(e){return e}); 
   return result.join('&');
 }
 
@@ -73,7 +75,7 @@ function stringifyArray (key, obj) {
     if (_.isObject(val)) {
       // not allow any object in an array
       throw new Error('Not Allow Any Object In An Array:'+key+'='+JSON.stringify(obj));
-    } else {
+    } else if (val) {
       result.push(key+'[]=' + val);
     }
   });
