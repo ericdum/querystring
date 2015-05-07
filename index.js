@@ -14,7 +14,8 @@ function parse( query ){
   var dirty = false;
   for( var key in query ) {
     var value = query[key];
-    if( matches = key.match(/^([\w\[\]]+)(\[\w*\])$/) ){
+    if( typeof value == 'string' && !isNaN(1*value) ) value = 1*value;
+    if( matches = key.match(/^(.+)(\[[^\]]*\])$/) ){
       var parent = matches[1];
       var child = matches[2];
       if( child.match(/^\[\s*\]$/) ) {

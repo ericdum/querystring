@@ -63,6 +63,29 @@ describe("querystring", function(){
       c:3
     });
   })
+  it("x.y[c][$d]=3m&x.y[a][]=c&x.y[b][]=1&x2.y2[c][$d]=3m&x.y3[c][$d]=3m&x.y3[a]=c&x.y3[b][]=1", function(){
+    expect(qs("x.y[c][$d]=3m&x.y[a][]=c&x.y[b][]=1&x2.y2[c][$d]=3m&x.y3[c][$d]=3m&x.y3[a]=c&x.y3[b][]=1")).to.be.eql({
+      'x.y': {
+        c: {
+          '$d': '3m'
+        },
+        a: ['c'],
+        b: [1]
+      },
+      'x2.y2': {
+        c: {
+          '$d': '3m'
+        }
+      },
+      'x.y3': {
+        c: {
+          '$d': '3m'
+        },
+        a: 'c',
+        b: [1]
+      }
+    });
+  })
 });
 describe("querystring.stringify", function(){
   it("normal: ?a=1&b=2", function(){
@@ -125,6 +148,29 @@ describe("querystring.stringify", function(){
       },
       c:3
     })).to.be.eql( "a=1&b[eric][]=dum&b[stive][]=jobs&b[stive][]=fans&c=3");
+  })
+  it("x.y[c][$d]=3m&x.y[a][]=c&x.y[b][]=1&x2.y2[c][$d]=3m&x.y3[c][$d]=3m&x.y3[a]=c&x.y3[b][]=1", function(){
+    expect(qs.stringify({
+      'x.y': {
+        c: {
+          '$d': '3m'
+        },
+        a: ['c'],
+        b: [1]
+      },
+      'x2.y2': {
+        c: {
+          '$d': '3m'
+        }
+      },
+      'x.y3': {
+        c: {
+          '$d': '3m'
+        },
+        a: 'c',
+        b: [1]
+      }
+    })).to.be.eql("x.y[c][$d]=3m&x.y[a][]=c&x.y[b][]=1&x2.y2[c][$d]=3m&x.y3[c][$d]=3m&x.y3[a]=c&x.y3[b][]=1");
   })
   //*/
 });
