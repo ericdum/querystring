@@ -42,7 +42,7 @@ module.exports.stringify = function(obj) {
       } else if (_.isObject(val)) {
         result.push(stringifyObject(key, val));
       } else if (val) {
-        result.push(key+'='+val);
+        result.push(key+'='+native_qs.escape(val));
       }
     });
     result = result.filter(function(e){return e}); 

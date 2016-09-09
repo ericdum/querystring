@@ -94,6 +94,12 @@ describe("querystring.stringify", function(){
       b:2
     })).to.be.eql("a=1&b=2");
   })
+  it("escape: ?a=1&b=2", function(){
+    expect(qs.stringify({
+      a:'中',
+      b:'文'
+    })).to.be.eql("a=%E4%B8%AD&b=%E6%96%87");
+  })
   it("array: ?a=1&b[]=1&b[]=2&c=3", function(){
     expect(qs.stringify( {
       a:1,
