@@ -1,4 +1,8 @@
-var native_qs = require("querystring");
+if (typeof window !=="undefined") {
+  var native_qs = require("querystring-browser");
+} else {
+  var native_qs = require("querystring");
+}
 var _ = require('lodash');
 
 module.exports = function(query) {
