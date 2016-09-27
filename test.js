@@ -7,6 +7,10 @@ describe("querystring", function(){
       a:1,
       b:2
     });
+    expect(qs.parse("a=1&b=2")).to.be.eql({
+      a:1,
+      b:2
+    });
   })
   it("array: ?a=1&b[]=1&b[]=2&c=3", function(){
     expect(qs("a=1&b[]=1&b[]=2&c=3")).to.be.eql({

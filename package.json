@@ -1,6 +1,6 @@
 {
   "name": "query-string-object",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "desciption": "support object or array like what's php did: ?a[a]=1&a[b]=2 -> a={a:1,b:2}",
   "keywords": "querystring, object, array, php, query, extend, string, rest, restful",
   "homepage": "https://github.com/ericdum/querystring/",

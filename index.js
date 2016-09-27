@@ -37,6 +37,8 @@ function parse( query ){
   return dirty ? parse(query) : query
 }
 
+module.exports.parse = module.exports;
+
 module.exports.stringify = function(obj) {
   if (_.isObject(obj) && !_.isArray(obj)) {
     var result = [];
