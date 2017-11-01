@@ -47,7 +47,7 @@ module.exports.stringify = function(obj) {
         result.push(stringifyArray(key, val));
       } else if (_.isObject(val)) {
         result.push(stringifyObject(key, val));
-      } else if (val) {
+      } else if (val || val === 0) {
         result.push(key+'='+native_qs.escape(val));
       }
     });

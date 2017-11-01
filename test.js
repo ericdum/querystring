@@ -267,8 +267,9 @@ describe("querystring.stringify", function(){
       },
       "zzz": {},
       "www": '',
+      z:0,
       x:1,
       y:2
-    })).to.be.eql("x=1&y=2");
+    })).to.be.eql("z=0&x=1&y=2");
   })
 });
