@@ -8,7 +8,7 @@ var _ = require('lodash');
 module.exports = function(query) {
   if( ! query ) return {};
   if( typeof query == 'string' ) {
-    if( ! query.match(/\[\w*\]/) ) return native_qs.parse(query);
+      if( ! query.match(/(\[|\%5B)\w*(\]|\%5D)/) ) return native_qs.parse(query);
     query = native_qs.parse(query);
   }
   return parse( query )
@@ -19,7 +19,7 @@ function parse( query ){
   for( var key in query ) {
     var value = query[key];
     if( typeof value == 'string' && !isNaN(1*value) ) value = 1*value;
-    if( matches = key.match(/^(.+)(\[[^\]]*\])$/) ){
+      if( matches = key.match(/^(.+)((\[|\%5B)[^\]]*(\]|\%5D))$/) ){
       var parent = matches[1];
       var child = matches[2];
       if( child.match(/^\[\s*\]$/) ) {
@@ -47,7 +47,7 @@ module.exports.stringify = function(obj) {
         result.push(stringifyArray(key, val));
       } else if (_.isObject(val)) {
         result.push(stringifyObject(key, val));
-      } else if (val) {
+      } else if (val || val === 0 || val === false) {
         result.push(key+'='+native_qs.escape(val));
       }
     });

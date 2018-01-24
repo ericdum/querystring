@@ -49,6 +49,8 @@ output
 
 ####a=1&b[]=1&b[]=2&c=3
 
+*object and arrays with encoded brackets like %5B%5D*
+
 output
 
 ```

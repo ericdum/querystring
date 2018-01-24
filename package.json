@@ -14,11 +14,11 @@
     "test": "./node_modules/.bin/mocha --reporter tap test.js"
   },
   "devDependencies": {
-    "mocha": "*",
-    "expect.js": "*"
+    "expect.js": "*",
+    "mocha": "^4.0.1"
   },
   "dependencies": {
-    "lodash": "~3.8.0",
+    "lodash": "^4.17.4",
     "querystring-browser": "^1.0.4"
   }
 }
