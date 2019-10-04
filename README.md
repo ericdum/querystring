@@ -1,8 +1,8 @@
-##querystring [![Build Status](https://travis-ci.org/ericdum/querystring.svg?branch=master)](https://travis-ci.org/ericdum/querystring)
+# query-string-object [![Build Status](https://travis-ci.org/ericdum/querystring.svg?branch=master)](https://travis-ci.org/ericdum/querystring)
 
-support object or array like php did: ?a[]=1&a[]=2 -> a=[1,2]
+support object or array like php does: `?a[]=1&a[]=2 -> a=[1,2]` 
 
-###Usage
+## Usage
 
 install in shell
 
@@ -27,16 +27,16 @@ qs.stringify({
 // fInt=1&fString=string&fObject[anobject][a]=1&fObject[anobject][b]=2&fObject[anything]=thing&fArray[]=1&fArray[]=2&fArray[]=string
 ```
 
-###Tests
+## Tests
 
 ```shell
 npm install
-./node_modules/.bin/mocha --reporter tap test.js
+npm test
 ```
 
-###Expects
+## Expects
 
-####a=1&b=2
+### a=1&b=2
 
 output
 
@@ -47,7 +47,7 @@ output
 }
 ```
 
-####a=1&b[]=1&b[]=2&c=3
+### a=1&b[]=1&b[]=2&c=3
 
 output
 
@@ -59,7 +59,7 @@ output
 });
 ```
 
-####a=1&b[]=1&c=3
+### a=1&b[]=1&c=3
 
 output
 
@@ -71,7 +71,7 @@ output
 });
 ```
 
-####a=1&b[1]=1&c[3]=2&c=3
+### a=1&b[1]=1&c[3]=2&c=3
 
 output
 
@@ -87,7 +87,7 @@ output
 });
 ```
 
-####a=1&b[eric]=dum&c[stive]=jobs&c=3
+### a=1&b[eric]=dum&c[stive]=jobs&c=3
 
 ```
 output
@@ -102,7 +102,7 @@ output
 });
 ```
 
-####a=1&b[eric]=dum&b[stive]=jobs&c=3
+### a=1&b[eric]=dum&b[stive]=jobs&c=3
 
 output
 
@@ -117,7 +117,7 @@ output
 });
 ```
 
-####a=1&b[eric][]=dum&b[stive][]=jobs&b[stive][]=fans&c=3
+### a=1&b[eric][]=dum&b[stive][]=jobs&b[stive][]=fans&c=3
 
 output
 
